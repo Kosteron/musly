@@ -4,7 +4,11 @@
 
 I couldn't find any information about the tool's build environment, so I decided to rebuild one with the help of docker. I'm making this information available in this repository in case it's useful to someone else.
 
-/!\ DISCLAIMER /!\ this docker container is based on the obsolete gcc image gcc:6.4 [Available here](https://hub.docker.com/layers/library/gcc/6.4/images/sha256-43acacbef46af54806d333454ce9e947a7fac57ab191441c4b7bf0fa2f2ef206?context=explore) which provide an old Debian OS. Don't expose this docker container outside of your very local network !! /!\ DISCLAIMER /!\
+/!\ DISCLAIMER /!\ 
+
+this docker container is based on the obsolete gcc image gcc:6.4 [Available here](https://hub.docker.com/layers/library/gcc/6.4/images/sha256-43acacbef46af54806d333454ce9e947a7fac57ab191441c4b7bf0fa2f2ef206?context=explore) which provide an old Debian OS. Don't expose this docker container outside of your very local network !!
+
+/!\ DISCLAIMER /!\
 
 ## Features
 
