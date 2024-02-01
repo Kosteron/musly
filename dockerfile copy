@@ -1,0 +1,48 @@
+# Use an official C++ runtime as the base image
+FROM gcc:6.4
+
+RUN cat /etc/apt/sources.list
+
+# Add the old repository of jessie debian
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian jessie main" > /etc/apt/sources.list
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
+
+# Install git
+RUN apt-get update && apt-get install -y git cmake yasm
+
+#
+# Install libav
+#
+RUN git clone https://github.com/libav/libav.git libav
+WORKDIR /libav
+RUN git checkout v0.8
+RUN mkdir /libav/build
+WORKDIR /libav/build
+RUN ../configure --enable-shared --disable-symver
+RUN make
+RUN make install
+
+#
+# Install eigen version 3.0
+#
+WORKDIR /
+RUN git clone https://gitlab.com/libeigen/eigen.git eigen
+WORKDIR /eigen
+RUN git checkout 3.0
+RUN mkdir /eigen/build
+WORKDIR /eigen/build
+RUN cmake ..
+RUN make
+RUN make install
+
+# git clone the source code
+WORKDIR /
+RUN git clone https://github.com/dominikschnitzer/musly.git musly
+RUN mkdir /musly/build
+WORKDIR /musly/build
+RUN cmake ..
+RUN make
+RUN make install
+
+# Set a generic entrypoint
+CMD ["musly"]
