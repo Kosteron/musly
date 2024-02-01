@@ -18,7 +18,7 @@ For those who want to try this docker's container, here’s a step by step how t
 As a first step, clone this repository:
 
 ``` bash
-git clone ... docker-musly
+git clone https://github.com/Kosteron/musly.git docker-musly
 ```
 
 Then browse into the new created folder and create the container using the supplied dockerfile
@@ -100,7 +100,7 @@ root@be7e7136c000:/musly/build/musly#
 
 ## Full detail
 
-You can follow the instruction here now [](https://www.musly.org/about.html).
+You can follow the instruction here now [About page from official musly's website](https://www.musly.org/about.html).
 
 Initialize a new Musly collection
 ``` bash
